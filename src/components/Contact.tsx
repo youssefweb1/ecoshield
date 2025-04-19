@@ -90,79 +90,97 @@ const Contact: React.FC = () => {
           
           {/* Contact Form */}
           <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 shadow-xl">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                    {isRtl ? 'الاسم' : 'Name'}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
-                    placeholder={isRtl ? 'أدخل اسمك' : 'Enter your name'}
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
-                    {isRtl ? 'رقم الهاتف' : 'Phone'}
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
-                    placeholder={isRtl ? 'أدخل رقم هاتفك' : 'Enter your phone number'}
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  {isRtl ? 'البريد الإلكتروني' : 'Email'}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
-                  placeholder={isRtl ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-1">
-                  {isRtl ? 'الخدمة' : 'Service'}
-                </label>
-                <select
-                  id="service"
-                  className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
-                >
-                  <option value="">{isRtl ? 'اختر خدمة' : 'Select a service'}</option>
-                  <option value="pest-control">{isRtl ? 'مكافحة الآفات' : 'Pest Control'}</option>
-                  <option value="cleaning">{isRtl ? 'خدمات التنظيف' : 'Cleaning Services'}</option>
-                </select>
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                  {isRtl ? 'الرسالة' : 'Message'}
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
-                  placeholder={isRtl ? 'أدخل رسالتك' : 'Enter your message'}
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg transition-colors shadow-md"
-              >
-                <span>{isRtl ? 'إرسال الرسالة' : 'Send Message'}</span>
-                <Send className="h-4 w-4" />
-              </button>
-            </form>
+          
+          <form 
+  action="https://api.web3forms.com/submit" 
+  method="POST" 
+  className="space-y-6"
+>
+  {/* Access Key */}
+  <input type="hidden" name="access_key" value="29d5c74e-cdef-4e26-8e0e-92120867e1d6" />
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+        {isRtl ? 'الاسم' : 'Name'}
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
+        placeholder={isRtl ? 'أدخل اسمك' : 'Enter your name'}
+      />
+    </div>
+
+    <div>
+      <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
+        {isRtl ? 'رقم الهاتف' : 'Phone'}
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
+        placeholder={isRtl ? 'أدخل رقم هاتفك' : 'Enter your phone number'}
+      />
+    </div>
+  </div>
+
+  <div>
+    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+      {isRtl ? 'البريد الإلكتروني' : 'Email'}
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
+      placeholder={isRtl ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
+    />
+  </div>
+
+  <div>
+    <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-1">
+      {isRtl ? 'الخدمة' : 'Service'}
+    </label>
+    <select
+      id="service"
+      name="service"
+      className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
+    >
+      <option value="">{isRtl ? 'اختر خدمة' : 'Select a service'}</option>
+      <option value="pest-control">{isRtl ? 'مكافحة الآفات' : 'Pest Control'}</option>
+      <option value="cleaning">{isRtl ? 'خدمات التنظيف' : 'Cleaning Services'}</option>
+    </select>
+  </div>
+
+  <div>
+    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+      {isRtl ? 'الرسالة' : 'Message'}
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows={4}
+      required
+      className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
+      placeholder={isRtl ? 'أدخل رسالتك' : 'Enter your message'}
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    className="w-full flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg transition-colors shadow-md"
+  >
+    <span>{isRtl ? 'إرسال الرسالة' : 'Send Message'}</span>
+    <Send className="h-4 w-4" />
+  </button>
+</form>
+
+
           </div>
         </div>
       </div>
