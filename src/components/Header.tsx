@@ -111,7 +111,8 @@ const Header: React.FC = () => {
                   justifyContent: 'center',
                   height: '100%',
                   width: '100%',
-                  paddingBottom: language === 'en' ? '2px' : '0'
+                  paddingBottom: language === 'en' ? '2px' : '0',
+                  paddingTop: language === 'en' ? '0' : '4px'
                 }} 
                 className="font-medium text-sm"
               >
