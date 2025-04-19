@@ -72,7 +72,6 @@ const Header: React.FC = () => {
                 style={{ 
                   fontFamily: 'Tajawal, sans-serif', 
                   lineHeight: '1',
-                  paddingBottom: language === 'en' ? '8px' : '0',
                   paddingRight: '1px'
                 }} 
                 className={`font-medium  flex items-center justify-center h-full w-full`}
@@ -104,7 +103,7 @@ const Header: React.FC = () => {
                   fontFamily: 'Tajawal, sans-serif', 
                   paddingRight: '1px'
                 }} 
-                className={`font-medium ${language === 'en' ? 'text-base' : 'text-sm'} flex items-center justify-center h-full w-full`}
+                className={`font-medium flex items-center justify-center h-full w-full`}
               >
                 {language === 'en' ? 'ع' : 'EN'}
               </span>
