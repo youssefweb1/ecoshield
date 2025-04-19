@@ -1,0 +1,82 @@
+import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { useTranslation } from '../hooks/useTranslation';
+import { ArrowRight, ArrowLeft, ShoppingCart } from 'lucide-react';
+
+const Hero: React.FC = () => {
+  const { isRtl } = useLanguage();
+  const t = useTranslation();
+  const Arrow = isRtl ? ArrowLeft : ArrowRight;
+
+  return (
+    <section 
+      className="relative min-h-screen flex items-center pt-16"
+      dir={isRtl ? 'rtl' : 'ltr'}
+    >
+      {/* Background with Parallax Effect */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/90 to-gray-800"></div>
+        <div className="relative h-full overflow-hidden">
+          <img
+            src="https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Eco Shield Background"
+            className="w-full h-full object-cover object-center transform scale-105 animate-subtle-zoom"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/90 to-gray-900/70"></div>
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+            {t.hero.title}
+          </h1>
+          <p className="text-xl sm:text-2xl text-gray-300 mb-3 animate-fade-in delay-200">
+            {t.hero.subtitle}
+          </p>
+          <p className="text-lg text-green-400 font-medium mb-12 animate-fade-in delay-300">
+            {t.hero.tagline}
+          </p>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fade-in delay-400">
+            <a
+              href="https://store.ecoshield.sa"
+              className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
+            >
+              <span>{t.hero.cta}</span>
+              <ShoppingCart className="h-5 w-5 transition-transform group-hover:scale-110" />
+
+            </a>
+            <a
+              href="#contact"
+              className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium"
+            >
+              <span>{t.hero.secondaryCta}</span>
+              <Arrow className="h-5 w-5" />
+            </a>
+          </div>
+          
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in delay-500">
+            <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 transform hover:scale-105 transition-all">
+              <h3 className="text-xl font-semibold text-white mb-2">{t.hero.features.service.title}</h3>
+              <p className="text-gray-300">{t.hero.features.service.description}</p>
+            </div>
+            <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 transform hover:scale-105 transition-all">
+              <h3 className="text-xl font-semibold text-white mb-2">{t.hero.features.eco.title}</h3>
+              <p className="text-gray-300">{t.hero.features.eco.description}</p>
+            </div>
+            <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 transform hover:scale-105 transition-all">
+              <h3 className="text-xl font-semibold text-white mb-2">{t.hero.features.team.title}</h3>
+              <p className="text-gray-300">{t.hero.features.team.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
