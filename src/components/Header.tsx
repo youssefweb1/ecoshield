@@ -72,7 +72,7 @@ const Header: React.FC = () => {
                 style={{ 
                   fontFamily: 'Tajawal, sans-serif', 
                   lineHeight: '1',
-                  paddingRight: '1px'
+                  padding: '0'
                 }} 
                 className={`font-medium  flex items-center justify-center h-full w-full`}
               >
@@ -101,7 +101,9 @@ const Header: React.FC = () => {
               <span 
                 style={{ 
                   fontFamily: 'Tajawal, sans-serif', 
-                  paddingRight: '1px'
+                  padding: '0',   
+                
+                
                 }} 
                 className={`font-medium flex items-center justify-center h-full w-full`}
               >
