@@ -70,11 +70,15 @@ const Header: React.FC = () => {
             >
               <span 
                 style={{ 
-                  fontFamily: 'Tajawal, sans-serif', 
-                  lineHeight: '1',
-                  padding: '0'
+                  fontFamily: 'Tajawal, sans-serif',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: '100%',
+                  width: '100%',
+                  paddingBottom: language === 'en' ? '2px' : '0'
                 }} 
-                className={`font-medium  flex items-center justify-center h-full w-full`}
+                className="font-medium text-sm"
               >
                 {language === 'en' ? 'ع' : 'EN'}
               </span>
@@ -100,12 +104,15 @@ const Header: React.FC = () => {
             >
               <span 
                 style={{ 
-                  fontFamily: 'Tajawal, sans-serif', 
-                  padding: '0',   
-                
-                
+                  fontFamily: 'Tajawal, sans-serif',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: '100%',
+                  width: '100%',
+                  paddingBottom: language === 'en' ? '2px' : '0'
                 }} 
-                className={`font-medium flex items-center justify-center h-full w-full`}
+                className="font-medium text-sm"
               >
                 {language === 'en' ? 'ع' : 'EN'}
               </span>
