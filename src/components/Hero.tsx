@@ -21,10 +21,10 @@ const Hero: React.FC = () => {
         <div className="relative h-full overflow-hidden">
           <picture>
             <img
-              src="https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg?auto=compress&cs=tinysrgb&w=1920"
+              src="/about.webp"
               alt="Eco Shield Background"
-              width="1920"
-              height="1080"
+              width="100%"
+              height="auto"
               decoding="async"
               className="w-full h-full object-cover object-center transform scale-105 animate-subtle-zoom"
             />

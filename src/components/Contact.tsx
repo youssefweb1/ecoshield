@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div>
-            <div className="grid grid-cols-1 gap-8">
+            <div className="grid grid-cols-1 gap-8 mt-6">
               <div className="flex items-start space-x-4 rtl:space-x-reverse">
                 <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
                   <MessageSquare className="h-6 w-6 text-green-500" />
@@ -78,22 +78,6 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4 rtl:space-x-reverse">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
-                  <Globe className="h-6 w-6 text-green-500" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{t.contact.website}</h3>
-                  <a 
-                    href={t.contact.websiteValue}
-                    className="text-gray-300 hover:text-green-400 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.contact.websiteValue}
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
           

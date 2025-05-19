@@ -33,16 +33,14 @@ const PromotionPopup = () => {
         <div className="grid md:grid-cols-5 overflow-hidden rounded-lg">
           {/* Left side - Hero section */}
           <div className={`bg-gradient-to-br from-emerald-900 to-emerald-700 text-white p-6 flex flex-col justify-center md:col-span-2 ${language === 'ar' ? 'order-1' : 'order-2'}`}>
-            <div className="mt-6 md:mt-0 mb-4 inline-flex items-center gap-2 p-2 bg-white/10 rounded-lg">
+            <div className="mt-9 md:mt-0 mb-4 inline-flex items-center gap-2 p-2 bg-white/10 rounded-lg">
               {/* Logo or Shield + Company Name */}
               <img src="/icon.png" alt="Eco Shield Logo" className="h-8 w-8" width={32} height={32} decoding="async" />
               <span className="text-lg font-bold">{t.promotionPopup.company}</span>
             </div>
             <h2 className="text-2xl font-bold mb-2">{t.promotionPopup.title}</h2>
             <p className="text-emerald-100 mb-4">{t.promotionPopup.description}</p>
-            <div className="inline-flex px-2 py-1 bg-white/10 text-white border border-white/20 rounded-full text-sm mb-4">
-              {t.promotionPopup.year}
-            </div>
+            
           </div>
 
           {/* Right side - Content */}
@@ -56,7 +54,7 @@ const PromotionPopup = () => {
               </div>
             </div>
 
-            <div className="mb-6">
+            <div className="hidden md:block mb-6">
               <h3 className="font-medium mb-2 text-gray-200">{t.promotionPopup.features.title}</h3>
               <ul className="space-y-2">
                 {t.promotionPopup.features.items.map((feature: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined, index: Key | null | undefined) => (

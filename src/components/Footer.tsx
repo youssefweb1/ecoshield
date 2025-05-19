@@ -19,8 +19,8 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center space-x-3 rtl:space-x-reverse mb-4">
               <picture>
-                <source srcSet="/logo.png" type="image/png" />
-                <img className="h-[70px] w-auto" src="/logo.png" alt="Eco Shield Logo" width="70" height="70" decoding="async" />
+                <source srcSet="/logo.webp" type="image/webp" />
+                <img className="h-[70px] w-auto" src="/logo.webp" alt="Eco Shield Logo" width="70" height="70" decoding="async" />
               </picture>
             </div>
             <p className="text-gray-400 mb-4">

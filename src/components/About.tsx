@@ -22,9 +22,9 @@ const About: React.FC = () => {
             <div className="relative rounded-xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-black/40 z-10"></div>
               <picture>
-                <source srcSet="/about.jpg" type="image/webp" />
+                <source srcSet="/about.webp" type="image/webp" />
                 <img 
-                  src="/about.jpg" 
+                  src="/about.webp" 
                   alt="Eco Shield Professional Team" 
                   width="800"
                   height="600"
