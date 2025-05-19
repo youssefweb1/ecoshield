@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Menu, X, ShoppingCart } from 'lucide-react';
+import { Shield, Menu, X } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
 
@@ -83,16 +84,18 @@ const Header: React.FC = () => {
                 {language === 'en' ? 'ع' : 'EN'}
               </span>
             </button>
-            
+            {/* WhatsApp CTA */}
             <a
-              href="https://store.ecoshield.sa"
+              href={t.contact.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
             >
               <span
                style={{ fontFamily: 'Tajawal, sans-serif' }} 
                className="text-sm font-medium" 
-              >{t.store.cta}</span>
-              <ShoppingCart className="h-4 w-4" />
+              >{language === 'ar' ? 'تواصل واتساب' : 'WhatsApp Us'}</span>
+              <FaWhatsapp className="h-4 w-4" />
             </a>
           </div>
           
@@ -119,7 +122,6 @@ const Header: React.FC = () => {
                 {language === 'en' ? 'ع' : 'EN'}
               </span>
             </button>
-            
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-300 hover:text-green-400 transition-colors"
@@ -146,12 +148,15 @@ const Header: React.FC = () => {
                   {item.title}
                 </a>
               ))}
+              {/* WhatsApp CTA Mobile */}
               <a
-                href="https://store.ecoshield.sa"
+                href={t.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
               >
-                <ShoppingCart className="h-4 w-4" />
-                <span className="text-sm font-medium">{t.store.cta}</span>
+                <FaWhatsapp className="h-4 w-4" />
+                <span className="text-sm font-medium">{language === 'ar' ? 'تواصل واتساب' : 'WhatsApp Us'}</span>
               </a>
             </nav>
           </div>
