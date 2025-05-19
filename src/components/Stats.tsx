@@ -59,7 +59,7 @@ const Stats: React.FC = () => {
                 <h3 className={`text-4xl font-bold text-white mb-2 ${inView ? 'animate-counter' : ''}`}>
                   {item.value}
                 </h3>
-                <p className="text-green-400  text-lg">{item.label}</p>
+                <p className="text-green-400 text-lg">{item.label}</p>
               </div>
             );
           })}

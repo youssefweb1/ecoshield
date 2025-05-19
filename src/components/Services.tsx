@@ -54,7 +54,7 @@ const Services: React.FC = () => {
               <h3 className="text-2xl font-bold text-white">{t.services.pestControl.title}</h3>
             </div>
             
-            <p className="text-gray-300 mb-6">{t.services.pestControl.description}</p>
+            <p className="text-gray-200 mb-6">{t.services.pestControl.description}</p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {t.services.pestControl.items.map((item, index) => {
@@ -122,7 +122,7 @@ const Services: React.FC = () => {
               <h3 className="text-2xl font-bold text-white">{t.services.cleaning.title}</h3>
             </div>
             
-            <p className="text-gray-300 mb-6">{t.services.cleaning.description}</p>
+            <p className="text-gray-200 mb-6">{t.services.cleaning.description}</p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {t.services.cleaning.items.map((item, index) => {

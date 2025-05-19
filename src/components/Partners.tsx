@@ -25,7 +25,7 @@ const Partners: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-4">{t.partners.title}</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">{t.partners.description}</p>
+          <p className="text-gray-200 max-w-2xl mx-auto">{t.partners.description}</p>
         </div>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8">

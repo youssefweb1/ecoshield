@@ -35,7 +35,7 @@ const Testimonials: React.FC = () => {
             </div>
             
             <div className="relative z-10">
-              <p className="text-xl md:text-2xl text-gray-300 italic mb-6 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-200 italic mb-6 leading-relaxed">
                 "{t.testimonials.items[activeIndex].content}"
               </p>
               

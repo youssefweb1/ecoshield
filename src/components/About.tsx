@@ -45,7 +45,7 @@ const About: React.FC = () => {
             
             <div className="space-y-4 mb-8">
               {t.about.content.map((paragraph, index) => (
-                <p key={index} className="text-gray-300 leading-relaxed">
+                <p key={index} className="text-gray-200 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
@@ -57,7 +57,7 @@ const About: React.FC = () => {
                   <Award className="h-6 w-6 text-green-500" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{t.about.features?.certified?.title || 'Certified Professionals'}</h3>
+                  <h3 className="text-xl font-semibold text-white mb-1">{t.about.features?.certified?.title || 'Certified Professionals'}</h3>
                   <p className="text-gray-400">{t.about.features?.certified?.description || 'Our team consists of licensed and certified professionals'}</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ const About: React.FC = () => {
                   <Leaf className="h-6 w-6 text-green-500" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{t.about.features?.eco?.title || 'Eco-Friendly Solutions'}</h3>
+                  <h3 className="text-xl font-semibold text-white mb-1">{t.about.features?.eco?.title || 'Eco-Friendly Solutions'}</h3>
                   <p className="text-gray-400">{t.about.features?.eco?.description || 'We use environmentally conscious products and techniques'}</p>
                 </div>
               </div>
