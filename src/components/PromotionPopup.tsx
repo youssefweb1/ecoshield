@@ -39,7 +39,7 @@ const PromotionPopup = () => {
               <span className="text-lg font-bold">{t.promotionPopup.company}</span>
             </div>
             <h2 className="text-2xl font-bold mb-2">{t.promotionPopup.title}</h2>
-            <p className="text-emerald-100 mb-4">{t.promotionPopup.description}</p>
+            
             
           </div>
 
@@ -54,7 +54,7 @@ const PromotionPopup = () => {
               </div>
             </div>
 
-            <div className="hidden md:block mb-6">
+            <div className=" mb-6">
               <h3 className="font-medium mb-2 text-gray-200">{t.promotionPopup.features.title}</h3>
               <ul className="space-y-2">
                 {t.promotionPopup.features.items.map((feature: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined, index: Key | null | undefined) => (
@@ -67,6 +67,7 @@ const PromotionPopup = () => {
             </div>
 
             <button
+              id="whatsapp-promotionPopup-button"
               onClick={() => window.open(t.contact.whatsappLink, "_blank")}
               className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200"
               aria-label={t.promotionPopup.cta}

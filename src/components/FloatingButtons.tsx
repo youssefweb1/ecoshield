@@ -8,6 +8,7 @@ const FloatingButtons: React.FC = () => {
 
       {/* WhatsApp Button (left) */}
       <button
+        id="whatsapp-floating-button"
         onClick={() => window.open('https://wa.me/966533441300', '_blank')}
         className="fixed left-4 bottom-6 z-50 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-all transform hover:scale-110"
         aria-label="تواصل عبر واتساب"
@@ -17,6 +18,7 @@ const FloatingButtons: React.FC = () => {
 
       {/* Call Button (right) */}
       <button
+        id="call-floating-button"
         onClick={() => window.open('tel:0533441300')}
         className="fixed right-4 bottom-6 z-50 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all transform hover:scale-110"
         aria-label="اتصال هاتفي 0533441300"

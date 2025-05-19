@@ -2,20 +2,30 @@
 <html lang="ar">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com">
-    <link href="https://fonts.gstatic.com" crossorigin>
-    <link  as="image" href="/hero.webp" imagesrcset="/hero.webp" />
-    <link  as="style" href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <meta name="theme-color" content="#2d3e50" />
+
+    <!-- Fonts Preload & Async Load -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" media="all" onload="this.media='all'" crossorigin="anonymous" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" />
+    </noscript>
+
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image" href="/hero.webp" type="image/webp" />
+
     <!-- Title and Meta Description -->
     <title>Eco Shield | Pest Control & Cleaning Services</title>
     <meta name="description" content="Professional pest control and cleaning services across Saudi Arabia. Quality you deserve since 2015. Eco-friendly solutions with safe, certified, and effective results." />
     <meta name="keywords" content="pest control, cleaning services, saudi arabia, eco-friendly, rodent control, professional cleaning, deep cleaning, pest management" />
     <meta name="author" content="Eco Shield Environmental Solutions" />
 
-    <!-- Open Graph / Facebook Meta Tags -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Eco Shield | Pest Control & Cleaning Services" />
     <meta property="og:description" content="Eco Shield offers professional pest control and cleaning services across Saudi Arabia. Eco-friendly, safe, and effective solutions for a clean and safe environment." />
     <meta property="og:image" content="/icon.png" />
@@ -27,24 +37,13 @@
     <meta name="twitter:description" content="Eco Shield provides eco-friendly pest control and cleaning services across Saudi Arabia. Safe, certified, and effective solutions since 2015." />
     <meta name="twitter:image" content="https://www.ecoshield.sa/images/twitter-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    
-    <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/svg+xml" href="/icon.png" />
-    <link rel="icon" type="image/png" href="/icon.png" />
-    <link rel="apple-touch-icon" href="/icon.png" />
-    <link rel="icon" sizes="192x192" href="/icon.png" />
-    <meta name="theme-color" content="#2d3e50" />
 
-
-
-    <!-- Social Media Links for Contact -->
+    <!-- Social Media Contact Meta -->
     <meta name="whatsapp" content="0533441300" />
     <meta name="facebook" content="https://www.facebook.com/EcoShield" />
     <meta name="twitter" content="https://twitter.com/EcoShield" />
     <meta name="instagram" content="https://www.instagram.com/EcoShield" />
-    <style>
-      /* إزالة @import للخطوط من هنا */
-    </style>
+
     <!-- Schema Markup for Local SEO -->
     <script type="application/ld+json">
       {
@@ -67,19 +66,24 @@
         ]
       }
     </script>
+
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TT53B78T');</script>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TT53B78T');
+    </script>
     <!-- End Google Tag Manager -->
+
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT53B78T"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx" defer></script>
   </body>

@@ -73,6 +73,7 @@ const Footer: React.FC = () => {
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a 
+                id='whatsapp-footer-button'
                 href="http://wa.me/9660533441300" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
@@ -125,6 +126,7 @@ const Footer: React.FC = () => {
               <li className="flex items-center space-x-3 rtl:space-x-reverse">
                 <span className="text-gray-400">{t.contact.whatsapp}</span>
                 <a 
+                id='whatsapp-footer-button-2'
                   href={t.contact.whatsappLink}
                   className="text-gray-300 hover:text-green-400 transition-colors"
                 >

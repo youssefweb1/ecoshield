@@ -49,6 +49,7 @@ const Hero: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fade-in delay-400">
             <a
+              id="whatsapp-hero-desktop"
               href="https://wa.me/966533441300"
               target="_blank"
               rel="noopener noreferrer"
@@ -58,6 +59,7 @@ const Hero: React.FC = () => {
               <FaWhatsapp className="h-5 w-5" />
             </a>
             <a
+              id="call-hero-desktop"
               href="tel:0533441300"
               className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
             >

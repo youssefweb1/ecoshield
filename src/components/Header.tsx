@@ -86,6 +86,7 @@ const Header: React.FC = () => {
             </button>
             {/* WhatsApp CTA */}
             <a
+              id="whatsapp-header-desktop"
               href={t.contact.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -150,6 +151,7 @@ const Header: React.FC = () => {
               ))}
               {/* WhatsApp CTA Mobile */}
               <a
+                id="whatsapp-header-mobile"
                 href={t.contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
