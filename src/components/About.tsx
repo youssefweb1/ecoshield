@@ -21,14 +21,18 @@ const About: React.FC = () => {
             <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-green-500/20 rounded-full"></div>
             <div className="relative rounded-xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-black/40 z-10"></div>
-              <img 
-                src="/about.jpg" 
-                alt="Eco Shield Professional Team" 
-                width="800"
-                height="600"
-                loading="lazy"
-                className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
-              />
+              <picture>
+                <source srcSet="/about.jpg" type="image/webp" />
+                <img 
+                  src="/about.jpg" 
+                  alt="Eco Shield Professional Team" 
+                  width="800"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-cover aspect-[4/3] transform hover:scale-105 transition-transform duration-500"
+                />
+              </picture>
             </div>
           </div>
           

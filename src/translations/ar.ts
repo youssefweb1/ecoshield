@@ -7,6 +7,8 @@ export const ar: Translation = {
     tagline: 'الجودة التي تستحقها - منذ عام 2015',
     cta: 'زيارة المتجر',
     secondaryCta: 'احصل على عرض سعر مجاني',
+    ctaWhatsapp: 'تواصل عبر واتساب',
+    ctaCall: 'اتصل الآن',
     features: {
       service: {
         title: "خدمة 24/7",

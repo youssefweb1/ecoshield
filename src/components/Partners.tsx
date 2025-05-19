@@ -34,7 +34,7 @@ const Partners: React.FC = () => {
               key={index}
               className="flex flex-col items-center justify-center p-4 bg-gray-700/50 hover:bg-gray-700 rounded-xl transition-colors"
             >
-              <partner.icon className="h-12 w-12 text-green-400 mb-3" />
+              <partner.icon className="h-12 w-12 text-green-400 mb-3" width={48} height={48} aria-label={t.partners.names[index]} />
               <span className="text-white text-sm">{t.partners.names[index]}</span>
             </div>
           ))}

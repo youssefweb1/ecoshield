@@ -12,7 +12,7 @@ const PromotionPopup = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true)
-    }, 3000)
+    }, 6000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -35,7 +35,7 @@ const PromotionPopup = () => {
           <div className={`bg-gradient-to-br from-emerald-900 to-emerald-700 text-white p-6 flex flex-col justify-center md:col-span-2 ${language === 'ar' ? 'order-1' : 'order-2'}`}>
             <div className="mt-6 md:mt-0 mb-4 inline-flex items-center gap-2 p-2 bg-white/10 rounded-lg">
               {/* Logo or Shield + Company Name */}
-              <img src="/icon.png" alt="Eco Shield Logo" className="h-8 w-8" />
+              <img src="/icon.png" alt="Eco Shield Logo" className="h-8 w-8" width={32} height={32} decoding="async" />
               <span className="text-lg font-bold">{t.promotionPopup.company}</span>
             </div>
             <h2 className="text-2xl font-bold mb-2">{t.promotionPopup.title}</h2>

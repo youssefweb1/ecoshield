@@ -18,6 +18,8 @@ export interface Translation {
     subtitle: string;
     tagline: string;
     cta: string;
+    ctaWhatsapp: string;
+    ctaCall: string;
   };
   offers: {
     title: string;

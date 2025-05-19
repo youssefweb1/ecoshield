@@ -19,14 +19,16 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/90 to-gray-800"></div>
         <div className="relative h-full overflow-hidden">
-          <img
-            src="https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Eco Shield Background"
-            width="1920"
-            height="1080"
-            loading="eager"
-            className="w-full h-full object-cover object-center transform scale-105 animate-subtle-zoom"
-          />
+          <picture>
+            <img
+              src="https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg?auto=compress&cs=tinysrgb&w=1920"
+              alt="Eco Shield Background"
+              width="1920"
+              height="1080"
+              decoding="async"
+              className="w-full h-full object-cover object-center transform scale-105 animate-subtle-zoom"
+            />
+          </picture>
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/90 to-gray-900/70"></div>
       </div>
@@ -52,14 +54,14 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
             >
-              <span>تواصل عبر واتساب</span>
+              <span>{t.hero.ctaWhatsapp}</span>
               <FaWhatsapp className="h-5 w-5" />
             </a>
             <a
               href="tel:0533441300"
               className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
             >
-              <span>اتصل الآن</span>
+              <span>{t.hero.ctaCall}</span>
               <Phone className="h-5 w-5" />
             </a>
           </div>

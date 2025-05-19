@@ -7,6 +7,8 @@ export const en: Translation = {
     tagline: 'Quality You Deserve – Since 2015',
     cta: 'Visit Our Store',
     secondaryCta: 'Get A Free Quote',
+    ctaWhatsapp: 'WhatsApp Us',
+    ctaCall: 'Call Now',
     features: {
       service: {
         title: "24/7 Service",
