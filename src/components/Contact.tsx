@@ -61,11 +61,20 @@ const Contact: React.FC = () => {
               
               <div className="flex items-start space-x-4 rtl:space-x-reverse">
                 <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
-                  <MapPin className="h-6 w-6 text-green-500" />
+                <MapPin className="h-6 w-6 text-green-500" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-1">{t.contact.location}</h3>
-                  <p className="text-gray-300">{t.contact.locationValue}</p>
+                  <div className="flex items-center mb-4">
+                    <a
+                      href={t.contact.websiteValue}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 underline"
+                    >
+                      {t.contact.locationValue}
+                    </a>
+                  </div>
                 </div>
               </div>
               
@@ -76,7 +85,7 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-1">{t.contact.website}</h3>
                   <a 
-                    href={`https://${t.contact.websiteValue}`}
+                    href={t.contact.websiteValue}
                     className="text-gray-300 hover:text-green-400 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -109,6 +118,7 @@ const Contact: React.FC = () => {
         id="name"
         name="name"
         required
+        autoComplete="name"
         className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
         placeholder={isRtl ? 'أدخل اسمك' : 'Enter your name'}
       />
@@ -122,6 +132,7 @@ const Contact: React.FC = () => {
         type="tel"
         id="phone"
         name="phone"
+        autoComplete="tel"
         className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
         placeholder={isRtl ? 'أدخل رقم هاتفك' : 'Enter your phone number'}
       />
@@ -137,6 +148,7 @@ const Contact: React.FC = () => {
       id="email"
       name="email"
       required
+      autoComplete="email"
       className="w-full bg-gray-700 border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-green-500 focus:border-green-500"
       placeholder={isRtl ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
     />

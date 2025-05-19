@@ -8,7 +8,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
-import Store from './components/Store';
 import WhyUs from './components/WhyUs';
 import Stats from './components/Stats';
 import Testimonials from './components/Testimonials';
@@ -16,6 +15,7 @@ import Partners from './components/Partners';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
+import PromotionPopup from './components/PromotionPopup';
 
 function App() {
   const { isRtl } = useLanguage();
@@ -61,7 +61,6 @@ function App() {
       <Hero />
       <About />
       <Services />
-      <Store />
       <WhyUs />
       <Stats />
       <Testimonials />
@@ -69,6 +68,7 @@ function App() {
       <Contact />
       <Footer />
       <FloatingButtons />
+      <PromotionPopup />
     </div>
   );
 }

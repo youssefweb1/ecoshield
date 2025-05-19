@@ -22,7 +22,24 @@ export const en: Translation = {
       }
     }
   },
-
+  promotionPopup: {
+    title: "Special Annual Offer from Eco Shield",
+    description: "Get year-round pest control and professional cleaning for your home or business with Eco Shield. Enjoy peace of mind and premium service from our certified team.",
+    price: "1500 SAR",
+    year: "year",
+    cta: "Book the Annual Offer Now",
+    company: "Eco Shield",
+    features: {
+      title: "What's included:",
+      items: [
+        "Regular visits for all types of pest and rodent control",
+        "Seasonal deep cleaning service",
+        "Safe and eco-friendly materials",
+        "Free technical support and consultations all year",
+        "Quality guarantee and fast response"
+      ]
+    }
+  },
   offers: {
     title: 'Our Exclusive Offers',
     items: [
@@ -71,31 +88,15 @@ export const en: Translation = {
   },
   whyUs: {
     title: 'Why Choose Eco Shield?',
+    description: 'We believe excellence starts with experience, a specialized team, certified standards, and modern scientific methods to serve our clients 24/7.',
     reasons: [
-      {
-        title: 'Expert Team',
-        description: 'Certified engineers and technicians trained to the highest global standards.'
-      },
-      {
-        title: 'Safe & Approved Pesticides',
-        description: 'All materials are FDA-approved, odorless, and safe for children and pets.'
-      },
-      {
-        title: 'Trusted Staff',
-        description: 'Certified professionals experienced in all sectors (restaurants, homes, factories, hotels, etc.).'
-      },
-      {
-        title: '24/7 Availability',
-        description: 'Emergency and regular services are available around the clock.'
-      },
-      {
-        title: 'Best Value for Quality',
-        description: 'Flexible offers for all clients, with a quality guarantee.'
-      },
-      {
-        title: 'Advanced & Effective Technology',
-        description: 'We use state-of-the-art tools to ensure safe and powerful results.'
-      }
+      { title: '10 Years of Experience', description: 'We have extensive practical and scientific experience in pest control and cleaning services for over ten years.' },
+      { title: 'Filipino Workforce', description: 'A professional, well-trained Filipino team ensures the highest quality and commitment.' },
+      { title: '4 ISO Certificates', description: 'We are certified with global ISO standards for quality, safety, and environment.' },
+      { title: 'Specialized Team for Every Case', description: 'We assign the right team for each service or case to guarantee the best results.' },
+      { title: 'True Value for a Great Price', description: 'Our prices are competitive while maintaining the highest service quality.' },
+      { title: 'We Follow Modern Scientific Methods', description: 'We use the latest technologies and globally approved scientific methods.' },
+      { title: 'Available 24/7', description: 'Our services are available around the clock, every day of the week.' },
     ],
   },
   services: {
@@ -131,16 +132,16 @@ export const en: Translation = {
     title: 'Our Clients in Numbers',
     items: [
       {
-        value: '486+',
-        label: 'Happy Clients'
-      },
-      {
-        value: '6',
-        label: 'Excellence Awards'
-      },
-      {
-        value: '8+',
+        value: '+10',
         label: 'Years of Experience'
+      },
+      {
+        value: '+800',
+        label: 'Clients'
+      },
+      {
+        value: '4',
+        label: 'Excellence Certificates'
       }
     ],
   },
@@ -192,9 +193,9 @@ export const en: Translation = {
     email: 'Email:',
     emailValue: 'info@ecoshield.me',
     location: 'Location:',
-    locationValue: 'Riyadh, Saudi Arabia',
-    website: 'Website:',
-    websiteValue: 'www.ecoshield.me',
+    locationValue: 'Olaya, Riyadh, Saudi Arabia',
+    website: 'View on Map:',
+    websiteValue: 'https://maps.app.goo.gl/HAG6km1u6y11pDSu6',
   },
   footer: {
     copyright: '© 2025 EcoShield ',
@@ -205,4 +206,4 @@ export const en: Translation = {
     title: '',
     items: []
   }
-};
+}

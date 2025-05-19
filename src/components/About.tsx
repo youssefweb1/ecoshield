@@ -24,6 +24,9 @@ const About: React.FC = () => {
               <img 
                 src="/about.jpg" 
                 alt="Eco Shield Professional Team" 
+                width="800"
+                height="600"
+                loading="lazy"
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
               />
             </div>

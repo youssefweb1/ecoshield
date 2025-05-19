@@ -2,6 +2,8 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
 import { ArrowRight, ArrowLeft, ShoppingCart } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { Phone } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { isRtl } = useLanguage();
@@ -20,6 +22,9 @@ const Hero: React.FC = () => {
           <img
             src="https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Eco Shield Background"
+            width="1920"
+            height="1080"
+            loading="eager"
             className="w-full h-full object-cover object-center transform scale-105 animate-subtle-zoom"
           />
         </div>
@@ -42,19 +47,20 @@ const Hero: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fade-in delay-400">
             <a
-              href="https://store.ecoshield.sa"
+              href="https://wa.me/966533441300"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
             >
-              <span>{t.hero.cta}</span>
-              <ShoppingCart className="h-5 w-5 transition-transform group-hover:scale-110" />
-
+              <span>تواصل عبر واتساب</span>
+              <FaWhatsapp className="h-5 w-5" />
             </a>
             <a
-              href="#contact"
-              className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium"
+              href="tel:0533441300"
+              className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
             >
-              <span>{t.hero.secondaryCta}</span>
-              <Arrow className="h-5 w-5" />
+              <span>اتصل الآن</span>
+              <Phone className="h-5 w-5" />
             </a>
           </div>
           

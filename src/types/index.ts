@@ -41,9 +41,10 @@ export interface Translation {
   };
   whyUs: {
     title: string;
+    description?: string;
     reasons: {
       title: string;
-      description: string;
+      description?: string;
     }[];
   };
   services: {
@@ -72,6 +73,18 @@ export interface Translation {
       content: string;
       author: string;
     }[];
+  };
+  promotionPopup: {
+    title: string;
+    description: string;
+    price: string;
+    year: string;
+    cta: string;
+    company: string;
+    features: {
+      title: string;
+      items: string[];
+    };
   };
   partners: {
     title: string;

@@ -25,7 +25,6 @@ const Header: React.FC = () => {
   const navItems = [
     { title: t.about.title, href: '#about' },
     { title: t.services.title, href: '#services' },
-    { title: t.store.title, href: '#store' },
     { title: t.whyUs.title, href: '#why-us' },
     { title: t.contact.title, href: '#contact' },
   ];
@@ -41,11 +40,10 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <a href="#" className="flex items-center space-x-2 rtl:space-x-reverse">
-          {/* <img  className="h-8 w-8" src="/public/logo.webp" alt="LOGO" /> */}
-          
-            <Shield className="h-8 w-8 text-green-500" />
+            <img className="h-8 w-8" src="/icon.png" alt="Eco Shield Logo" width="32" height="32" />
+            
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-white">Eco Shield</span>
+              <span className="text-xl font-bold text-white">{language === 'ar' ? 'إيكو شيلد' : 'Eco Shield'}</span>
             </div>
           </a>
           
@@ -67,6 +65,7 @@ const Header: React.FC = () => {
             <button 
               onClick={toggleLanguage}
               className="w-8 h-8 rounded-full bg-gray-800 hover:bg-green-600 text-gray-300 hover:text-white transition-colors flex items-center justify-center"
+              aria-label="تغيير اللغة"
             >
               <span 
                 style={{ 
@@ -102,6 +101,7 @@ const Header: React.FC = () => {
             <button 
               onClick={toggleLanguage}
               className="w-8 h-8 rounded-full bg-gray-800 hover:bg-green-600 text-gray-300 hover:text-white transition-colors flex items-center justify-center"
+              aria-label="تغيير اللغة"
             >
               <span 
                 style={{ 
@@ -123,6 +123,7 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-300 hover:text-green-400 transition-colors"
+              aria-label={isMenuOpen ? "إغلاق القائمة" : "فتح القائمة"}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-[1.9rem] w-[1.9rem]" />}
             </button>

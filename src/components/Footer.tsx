@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
-import { Heart, Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Heart, Instagram, Facebook, Twitter, Linkedin, MapPin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
@@ -18,56 +18,69 @@ const Footer: React.FC = () => {
           {/* About */}
           <div>
             <div className="flex items-center space-x-3 rtl:space-x-reverse mb-4">
-          <img  className="h-[100PX] w-[100PX]" src="/logo.webp" alt="LOGO" />
+              <img className="h-[70px] w-auto" src="/logo.png" alt="Eco Shield Logo" width="70" height="70" />
               
-              {/* <Shield className="h-8 w-8 text-green-500" />
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-white">Eco Shield</span>
-              </div> */}
+              
             </div>
             <p className="text-gray-400 mb-4">
               {t.footer.description}
             </p>
+            
             <div className="flex space-x-4 rtl:space-x-reverse">
               <a 
                 href="https://www.facebook.com/Ecoshield.pest.control.service.saudi.arabia" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
               >
                 <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
               </a>
               <a 
                 href="https://x.com/eco_shield_sa" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Twitter"
+                title="Twitter"
               >
                 <Twitter className="h-5 w-5" />
+                <span className="sr-only">Twitter</span>
               </a>
               <a 
                 href="https://www.instagram.com/eco_shield_sa/" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
               >
                 <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
               </a>
               <a 
                 href="https://www.linkedin.com/company/eco-shield-eco-solutions/" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
               </a>
               <a 
                 href="http://wa.me/9660533441300" 
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                title="WhatsApp"
               >
                 <FaWhatsapp className="h-5 w-5" />
+                <span className="sr-only">WhatsApp</span>
               </a>
             </div>
           </div>
@@ -128,7 +141,14 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center space-x-3 rtl:space-x-reverse">
                 <span className="text-gray-400">{t.contact.location}</span>
-                <span className="text-gray-300">{t.contact.locationValue}</span>
+                <a
+                href={t.contact.websiteValue}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 underline"
+              >
+                {t.contact.locationValue}
+              </a>
               </li>
             </ul>
           </div>
@@ -139,13 +159,13 @@ const Footer: React.FC = () => {
             <p className="text-gray-400">
               {t.footer.copyright} | {t.footer.rights}
             </p>
-            <span className="flex items-center space-x-1 rtl:space-x-reverse">
+            <span className="flex items-center space-x-1 rtl:space-x-reverse text-gray-200">
               <span>{isRtl ? 'صنع بـكل ' : 'Made with'}</span>
               <Heart className="h-3 w-3 text-green-400 bold" />
               <span>
                 {isRtl ? 'بواسطة / ' : 'by '}
                 <a 
-                  href="https://youssefelsabbahi.vercel.app/" 
+                  href="https://www.yooussef.com/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="font-bold underline text-green-400 transition-colors"
