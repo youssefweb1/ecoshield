@@ -45,7 +45,7 @@ const Services: React.FC = () => {
         </div>
         
         {/* Pest Control */}
-        <div className="bg-gray-800 rounded-xl p-8 md:p-10 shadow-xl transition-transform hover:scale-[1.01] duration-300 w-full max-w-6xl mx-auto">
+        <div className="bg-gray-800 rounded-xl p-8 md:p-10 shadow-xl transition-transform hover:scale-[1.01] duration-300 w-full  mx-auto">
           <div className="flex items-center space-x-4 rtl:space-x-reverse mb-8">
             <div className="w-16 h-16 bg-green-500/20 rounded-lg flex items-center justify-center">
               {React.createElement(pestIconsMap[t.services.pestControl.items[0]] || pestIconsMap['default'], { className: "h-9 w-9 text-green-500" })}
@@ -55,7 +55,7 @@ const Services: React.FC = () => {
           
           <p className="text-gray-200 mb-8 text-lg">{t.services.pestControl.description}</p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {t.services.pestControl.items.map((item, index) => {
               const Icon = pestIconsMap[item] || pestIconsMap['default'];
               return (
