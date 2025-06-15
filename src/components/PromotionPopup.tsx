@@ -1,11 +1,12 @@
 import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useEffect, useState } from "react"
-import { Shield, X, Check } from "lucide-react"
+import { Shield, X, Check, Phone } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
 import { useTranslation } from "../hooks/useTranslation"
 import { useLanguage } from "../context/LanguageContext"
 
 const PromotionPopup = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const [showCallButton, setShowCallButton] = useState(false)
   const t = useTranslation()
   const { language } = useLanguage()
 
@@ -15,6 +16,28 @@ const PromotionPopup = () => {
     }, 6000)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    // Function to check if current time is between 8:00 AM and 9:00 PM Saudi time
+    const checkBusinessHours = () => {
+      // Create a date object with Saudi Arabia timezone (Asia/Riyadh)
+      const now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' });
+      const currentTime = new Date(now);
+      const currentHour = currentTime.getHours();
+
+      // Show call button between 8:00 AM (8) and 9:00 PM (21)
+      setShowCallButton(currentHour >= 8 && currentHour < 21);
+    };
+
+    // Check immediately when component mounts
+    checkBusinessHours();
+
+    // Set up interval to check every minute
+    const intervalId = setInterval(checkBusinessHours, 60000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   if (!isVisible) return null
 
@@ -66,15 +89,31 @@ const PromotionPopup = () => {
               </ul>
             </div>
 
-            <button
-              id="whatsapp-promotionPopup-button"
-              onClick={() => window.open(t.contact.whatsappLink, "_blank")}
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200"
-              aria-label={t.promotionPopup.cta}
-            >
-              <FaWhatsapp className="h-5 w-5" />
-              {t.promotionPopup.cta}
-            </button>
+            {/* WhatsApp Button - shown between 9:00 PM and 8:00 AM */}
+            {!showCallButton && (
+              <button
+                id="whatsapp-promotionPopup-button"
+                onClick={() => window.open(t.contact.whatsappLink, "_blank")}
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200"
+                aria-label={t.promotionPopup.cta}
+              >
+                <FaWhatsapp className="h-5 w-5" />
+                {t.promotionPopup.cta}
+              </button>
+            )}
+
+            {/* Call Button - shown between 8:00 AM and 9:00 PM */}
+            {showCallButton && (
+              <button
+                id="call-promotionPopup-button"
+                onClick={() => window.open('tel:0533441300')}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200"
+                aria-label={language === 'ar' ? 'اتصل الآن' : 'Call Now'}
+              >
+                <Phone className="h-5 w-5" />
+                {language === 'ar' ? 'اتصل الآن' : 'Call Now'}
+              </button>
+            )}
           </div>
         </div>
       </div>

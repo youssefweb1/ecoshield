@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Menu, X } from 'lucide-react';
+import { Shield, Menu, X, Phone } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
@@ -9,6 +9,7 @@ const Header: React.FC = () => {
   const t = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showCallButton, setShowCallButton] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ar' : 'en');
@@ -21,6 +22,28 @@ const Header: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Function to check if current time is between 8:00 AM and 9:00 PM Saudi time
+    const checkBusinessHours = () => {
+      // Create a date object with Saudi Arabia timezone (Asia/Riyadh)
+      const now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' });
+      const currentTime = new Date(now);
+      const currentHour = currentTime.getHours();
+
+      // Show call button between 8:00 AM (8) and 9:00 PM (21)
+      setShowCallButton(currentHour >= 8 && currentHour < 21);
+    };
+
+    // Check immediately when component mounts
+    checkBusinessHours();
+
+    // Set up interval to check every minute
+    const intervalId = setInterval(checkBusinessHours, 60000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   const navItems = [
@@ -84,20 +107,38 @@ const Header: React.FC = () => {
                 {language === 'en' ? 'ع' : 'EN'}
               </span>
             </button>
-            {/* WhatsApp CTA */}
-            <a
-              id="whatsapp-header-desktop"
-              href={t.contact.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
-            >
-              <span
-               style={{ fontFamily: 'Tajawal, sans-serif' }} 
-               className="text-sm font-medium" 
-              >{language === 'ar' ? 'تواصل واتساب' : 'WhatsApp Us'}</span>
-              <FaWhatsapp className="h-4 w-4" />
-            </a>
+            
+            {/* WhatsApp CTA - shown between 9:00 PM and 8:00 AM */}
+            {!showCallButton && (
+              <a
+                id="whatsapp-header-desktop"
+                href={t.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
+              >
+                <span
+                style={{ fontFamily: 'Tajawal, sans-serif' }} 
+                className="text-sm font-medium" 
+                >{language === 'ar' ? 'تواصل واتساب' : 'WhatsApp Us'}</span>
+                <FaWhatsapp className="h-4 w-4" />
+              </a>
+            )}
+            
+            {/* Call CTA - shown between 8:00 AM and 9:00 PM */}
+            {showCallButton && (
+              <a
+                id="call-header-desktop"
+                href="tel:0533441300"
+                className="flex items-center space-x-2 rtl:space-x-reverse bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
+              >
+                <span
+                style={{ fontFamily: 'Tajawal, sans-serif' }} 
+                className="text-sm font-medium" 
+                >{language === 'ar' ? 'اتصل الآن' : 'Call Now'}</span>
+                <Phone className="h-4 w-4" />
+              </a>
+            )}
           </div>
           
           {/* Mobile Menu Button */}
@@ -149,17 +190,32 @@ const Header: React.FC = () => {
                   {item.title}
                 </a>
               ))}
-              {/* WhatsApp CTA Mobile */}
-              <a
-                id="whatsapp-header-mobile"
-                href={t.contact.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
-              >
-                <FaWhatsapp className="h-4 w-4" />
-                <span className="text-sm font-medium">{language === 'ar' ? 'تواصل واتساب' : 'WhatsApp Us'}</span>
-              </a>
+              
+              {/* WhatsApp CTA Mobile - shown between 9:00 PM and 8:00 AM */}
+              {!showCallButton && (
+                <a
+                  id="whatsapp-header-mobile"
+                  href={t.contact.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
+                >
+                  <FaWhatsapp className="h-4 w-4" />
+                  <span className="text-sm font-medium">{language === 'ar' ? 'تواصل واتساب' : 'WhatsApp Us'}</span>
+                </a>
+              )}
+              
+              {/* Call CTA Mobile - shown between 8:00 AM and 9:00 PM */}
+              {showCallButton && (
+                <a
+                  id="call-header-mobile"
+                  href="tel:0533441300"
+                  className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors shadow-md"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span className="text-sm font-medium">{language === 'ar' ? 'اتصل الآن' : 'Call Now'}</span>
+                </a>
+              )}
             </nav>
           </div>
         </div>

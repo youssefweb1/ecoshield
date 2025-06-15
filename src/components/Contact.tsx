@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
 import { 
@@ -6,12 +6,37 @@ import {
   Mail, 
   MapPin, 
   Globe, 
-  Send 
+  Send,
+  Phone
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Contact: React.FC = () => {
   const { isRtl } = useLanguage();
   const t = useTranslation();
+  const [showCallButton, setShowCallButton] = useState(false);
+
+  useEffect(() => {
+    // Function to check if current time is between 8:00 AM and 9:00 PM Saudi time
+    const checkBusinessHours = () => {
+      // Create a date object with Saudi Arabia timezone (Asia/Riyadh)
+      const now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' });
+      const currentTime = new Date(now);
+      const currentHour = currentTime.getHours();
+
+      // Show call button between 8:00 AM (8) and 9:00 PM (21)
+      setShowCallButton(currentHour >= 8 && currentHour < 21);
+    };
+
+    // Check immediately when component mounts
+    checkBusinessHours();
+
+    // Set up interval to check every minute
+    const intervalId = setInterval(checkBusinessHours, 60000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section 
@@ -29,20 +54,41 @@ const Contact: React.FC = () => {
           {/* Contact Info */}
           <div>
             <div className="grid grid-cols-1 gap-8 mt-6">
-              <div className="flex items-start space-x-4 rtl:space-x-reverse">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
-                  <MessageSquare className="h-6 w-6 text-green-500" />
+              {/* WhatsApp Contact - shown between 9:00 PM and 8:00 AM */}
+              {!showCallButton && (
+                <div className="flex items-start space-x-4 rtl:space-x-reverse">
+                  <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                    <FaWhatsapp className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-1">{t.contact.whatsapp}</h3>
+                    <a 
+                      href={t.contact.whatsappLink}
+                      className="text-gray-300 hover:text-green-400 transition-colors"
+                    >
+                      {t.offers.phone}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{t.contact.whatsapp}</h3>
-                  <a 
-                    href={t.contact.whatsappLink}
-                    className="text-gray-300 hover:text-green-400 transition-colors"
-                  >
-                    {t.offers.phone}
-                  </a>
+              )}
+              
+              {/* Phone Contact - shown between 8:00 AM and 9:00 PM */}
+              {showCallButton && (
+                <div className="flex items-start space-x-4 rtl:space-x-reverse">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                    <Phone className="h-6 w-6 text-blue-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-1">{isRtl ? 'اتصل الآن' : 'Call Now'}</h3>
+                    <a 
+                      href="tel:0533441300"
+                      className="text-gray-300 hover:text-blue-400 transition-colors"
+                    >
+                      {t.offers.phone}
+                    </a>
+                  </div>
                 </div>
-              </div>
+              )}
               
               <div className="flex items-start space-x-4 rtl:space-x-reverse">
                 <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">

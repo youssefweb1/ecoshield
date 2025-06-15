@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
-import { Heart, Instagram, Facebook, Twitter, Linkedin, MapPin } from 'lucide-react';
+import { Heart, Instagram, Facebook, Twitter, Linkedin, MapPin, Phone } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   const { isRtl } = useLanguage();
   const t = useTranslation();
+  const [showCallButton, setShowCallButton] = useState(false);
+
+  useEffect(() => {
+    // Function to check if current time is between 8:00 AM and 9:00 PM Saudi time
+    const checkBusinessHours = () => {
+      // Create a date object with Saudi Arabia timezone (Asia/Riyadh)
+      const now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' });
+      const currentTime = new Date(now);
+      const currentHour = currentTime.getHours();
+
+      // Show call button between 8:00 AM (8) and 9:00 PM (21)
+      setShowCallButton(currentHour >= 8 && currentHour < 21);
+    };
+
+    // Check immediately when component mounts
+    checkBusinessHours();
+
+    // Set up interval to check every minute
+    const intervalId = setInterval(checkBusinessHours, 60000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <footer 
@@ -72,18 +95,32 @@ const Footer: React.FC = () => {
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a 
-                id='whatsapp-footer-button'
-                href="http://wa.me/9660533441300" 
-                className="text-gray-400 hover:text-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                title="WhatsApp"
-              >
-                <FaWhatsapp className="h-5 w-5" />
-                <span className="sr-only">WhatsApp</span>
-              </a>
+              {!showCallButton && (
+                <a 
+                  id='whatsapp-footer-button'
+                  href="http://wa.me/9660533441300" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  title="WhatsApp"
+                >
+                  <FaWhatsapp className="h-5 w-5" />
+                  <span className="sr-only">WhatsApp</span>
+                </a>
+              )}
+              {showCallButton && (
+                <a 
+                  id='call-footer-button'
+                  href="tel:0533441300" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Call"
+                  title="Call"
+                >
+                  <Phone className="h-5 w-5" />
+                  <span className="sr-only">Call</span>
+                </a>
+              )}
             </div>
           </div>
           
@@ -124,14 +161,29 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-white mb-6">{t.contact.title}</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3 rtl:space-x-reverse">
-                <span className="text-gray-400">{t.contact.whatsapp}</span>
-                <a 
-                id='whatsapp-footer-button-2'
-                  href={t.contact.whatsappLink}
-                  className="text-gray-300 hover:text-green-400 transition-colors"
-                >
-                  {t.offers.phone}
-                </a>
+                {!showCallButton ? (
+                  <>
+                    <span className="text-gray-400">{t.contact.whatsapp}</span>
+                    <a 
+                      id='whatsapp-footer-button-2'
+                      href={t.contact.whatsappLink}
+                      className="text-gray-300 hover:text-green-400 transition-colors"
+                    >
+                      {t.offers.phone}
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-gray-400">{t.contact.call}</span>
+                    <a 
+                      id='call-footer-button-2'
+                      href="tel:0533441300"
+                      className="text-gray-300 hover:text-blue-400 transition-colors"
+                    >
+                      {t.offers.phone}
+                    </a>
+                  </>
+                )}
               </li>
               <li className="flex items-center space-x-3 rtl:space-x-reverse">
                 <span className="text-gray-400">{t.contact.email}</span>

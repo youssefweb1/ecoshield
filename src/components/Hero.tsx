@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
 import { ArrowRight, ArrowLeft, ShoppingCart } from 'lucide-react';
@@ -9,6 +9,29 @@ const Hero: React.FC = () => {
   const { isRtl } = useLanguage();
   const t = useTranslation();
   const Arrow = isRtl ? ArrowLeft : ArrowRight;
+  const [showCallButton, setShowCallButton] = useState(false);
+
+  useEffect(() => {
+    // Function to check if current time is between 8:00 AM and 9:00 PM Saudi time
+    const checkBusinessHours = () => {
+      // Create a date object with Saudi Arabia timezone (Asia/Riyadh)
+      const now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' });
+      const currentTime = new Date(now);
+      const currentHour = currentTime.getHours();
+
+      // Show call button between 8:00 AM (8) and 9:00 PM (21)
+      setShowCallButton(currentHour >= 8 && currentHour < 21);
+    };
+
+    // Check immediately when component mounts
+    checkBusinessHours();
+
+    // Set up interval to check every minute
+    const intervalId = setInterval(checkBusinessHours, 60000);
+
+    // Clean up interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section 
@@ -48,24 +71,31 @@ const Hero: React.FC = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fade-in delay-400">
-            <a
-              id="whatsapp-hero-desktop"
-              href="https://wa.me/966533441300"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
-            >
-              <span>{t.hero.ctaWhatsapp}</span>
-              <FaWhatsapp className="h-5 w-5" />
-            </a>
-            <a
-              id="call-hero-desktop"
-              href="tel:0533441300"
-              className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
-            >
-              <span>{t.hero.ctaCall}</span>
-              <Phone className="h-5 w-5" />
-            </a>
+            {/* WhatsApp Button - shown between 9:00 PM and 8:00 AM */}
+            {!showCallButton && (
+              <a
+                id="whatsapp-hero-desktop"
+                href="https://wa.me/966533441300"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
+              >
+                <span>{t.hero.ctaWhatsapp}</span>
+                <FaWhatsapp className="h-5 w-5" />
+              </a>
+            )}
+            
+            {/* Call Button - shown between 8:00 AM and 9:00 PM */}
+            {showCallButton && (
+              <a
+                id="call-hero-desktop"
+                href="tel:0533441300"
+                className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg font-medium group"
+              >
+                <span>{t.hero.ctaCall}</span>
+                <Phone className="h-5 w-5" />
+              </a>
+            )}
           </div>
           
           {/* Features Grid */}

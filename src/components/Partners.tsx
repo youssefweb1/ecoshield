@@ -2,6 +2,13 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
 import { Building2, CarFront, ShoppingBag, Hotel, IceCream, Building, Shapes as Shoes } from 'lucide-react';
+// Import Swiper components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 const Partners: React.FC = () => {
   const { isRtl } = useLanguage();
@@ -28,17 +35,46 @@ const Partners: React.FC = () => {
           <p className="text-gray-200 max-w-2xl mx-auto">{t.partners.description}</p>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 3,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 4,
+            },
+            // when window width is >= 1024px
+            1024: {
+              slidesPerView: 5,
+            },
+            // when window width is >= 1280px
+            1280: {
+              slidesPerView: 7,
+            },
+          }}
+          className="partners-slider"
+        >
           {partnerIcons.map((partner, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center p-4 bg-gray-700/50 hover:bg-gray-700 rounded-xl transition-colors"
-            >
-              <partner.icon className="h-12 w-12 text-green-400 mb-3" width={48} height={48} aria-label={t.partners.names[index]} />
-              <span className="text-white text-sm">{t.partners.names[index]}</span>
-            </div>
+            <SwiperSlide key={index}>
+              <div
+                className="flex flex-col items-center justify-center p-4 bg-gray-700/50 hover:bg-gray-700 rounded-xl transition-colors h-full"
+              >
+                <partner.icon className="h-12 w-12 text-green-400 mb-3" width={48} height={48} aria-label={t.partners.names[index]} />
+                <span className="text-white text-sm">{t.partners.names[index]}</span>
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
