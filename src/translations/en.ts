@@ -27,7 +27,7 @@ export const en: Translation = {
   promotionPopup: {
     title: "Special Annual Offer from Eco Shield",
     description: "Get year-round pest control and professional cleaning for your home or business with Eco Shield. Enjoy peace of mind and premium service from our certified team.",
-    price: "1500 SAR",
+    price: "2200 SAR",
     year: "year",
     cta: "Book the Annual Offer Now",
     company: "Eco Shield",
